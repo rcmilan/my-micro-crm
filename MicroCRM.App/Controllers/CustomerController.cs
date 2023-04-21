@@ -9,18 +9,24 @@ namespace MicroCRM.App.Controllers
         {
             var viewModel = new CustomerViewModel
             {
-                Id = Guid.NewGuid(),
-                Name = "Test",
+                Customers = new List<CustomerListViewModel>
+                {
+                    new CustomerListViewModel
+                    {
+                        Id = Guid.NewGuid(),
+                        Name = "Name",
+                    }
+                }
             };
 
             return View(viewModel);
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(Guid id)
         {
             var viewModel = new CustomerDataViewModel
             {
-                Id = Guid.NewGuid(),
+                Id = id,
                 Name = "Test",
                 BirthDate = DateOnly.FromDateTime(DateTime.Now)
             };
@@ -31,7 +37,7 @@ namespace MicroCRM.App.Controllers
         [HttpPost]
         public IActionResult Post(CustomerDataViewModel viewModel)
         {
-            return RedirectToAction(nameof(Detail));
+            return RedirectToAction(nameof(Detail), new { viewModel.Id });
         }
     }
 }
