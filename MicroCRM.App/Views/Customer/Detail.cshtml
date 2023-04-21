@@ -1,0 +1,25 @@
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Customer;
+
+@model CustomerDataViewModel
+@{
+    ViewData["Title"] = "Customer Detail";
+}
+
+<div>
+    <h5>@Html.DisplayFor(m => m.Id)</h5>
+    <h2>@Html.DisplayFor(m => m.Name)</h2>
+    <div>
+        @using (Html.BeginForm(nameof(CustomerController.Post), "customer", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(m => m.Name)
+                @Html.TextBoxFor(m => m.Name)
+            </div>
+            <div>
+                @Html.DisplayFor(m => m.BirthDate)
+            </div>
+            <input type="submit" value="Submit" />
+        }
+    </div>
+</div>

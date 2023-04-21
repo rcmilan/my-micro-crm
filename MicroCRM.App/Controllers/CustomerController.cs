@@ -15,5 +15,23 @@ namespace MicroCRM.App.Controllers
 
             return View(viewModel);
         }
+
+        public IActionResult Detail()
+        {
+            var viewModel = new CustomerDataViewModel
+            {
+                Id = Guid.NewGuid(),
+                Name = "Test",
+                BirthDate = DateOnly.FromDateTime(DateTime.Now)
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Post(CustomerDataViewModel viewModel)
+        {
+            return RedirectToAction(nameof(Detail));
+        }
     }
 }
