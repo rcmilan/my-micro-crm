@@ -28,7 +28,7 @@ namespace MicroCRM.App.Controllers
             {
                 Id = id,
                 Name = "Test",
-                BirthDate = DateOnly.FromDateTime(DateTime.Now)
+                CreatedAt = DateTime.Now
             };
 
             return View(viewModel);
