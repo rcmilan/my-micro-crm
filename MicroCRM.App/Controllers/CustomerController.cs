@@ -1,4 +1,5 @@
-﻿using MicroCRM.App.Models.Customer;
+﻿using MediatR;
+using MicroCRM.App.Models.Customer;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroCRM.App.Controllers
@@ -35,9 +36,13 @@ namespace MicroCRM.App.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CustomerDataViewModel viewModel)
+        public async Task<IActionResult> Post([FromServices] IMediator mediator, CustomerDataViewModel viewModel)
         {
-            return RedirectToAction(nameof(Detail), new { viewModel.Id });
+            var req = viewModel.MapToCreateCustomerRequest();
+
+            var res = await mediator.Send(req);
+
+            return RedirectToAction(nameof(Detail), new { res.Id });
         }
     }
 }

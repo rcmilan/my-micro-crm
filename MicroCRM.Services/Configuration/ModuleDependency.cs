@@ -4,9 +4,10 @@ namespace MicroCRM.Services.Configuration
 {
     public static class ModuleDependency
     {
-        public static IServiceCollection AddServiceModule(IServiceCollection service)
+        public static IServiceCollection AddServicesModule(this IServiceCollection service)
         {
-            return service;
+            return service
+                .AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ModuleDependency).Assembly));
         }
     }
 }
