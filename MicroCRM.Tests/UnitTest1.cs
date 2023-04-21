@@ -5,7 +5,6 @@ namespace MicroCRM.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }
