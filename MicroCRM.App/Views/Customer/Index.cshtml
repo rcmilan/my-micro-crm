@@ -1,0 +1,18 @@
+﻿@using MicroCRM.App.Models.Customer;
+
+@model CustomerViewModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div>
+    <h2>Customer</h2>
+    <div>
+        <div>
+            @Html.DisplayFor(m => m.Id)
+        </div>
+        <div>
+            @Html.DisplayFor(m => m.Name)
+        </div>
+    </div>
+</div>
