@@ -1,0 +1,17 @@
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Customer;
+
+@model CustomerViewModel
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<div>
+    <h2>Customers</h2>
+    <ul>
+        @foreach (var c in Model.Customers)
+        {
+            <li>@Html.ActionLink(@c.Name, nameof(CustomerController.Detail), "customer", new { c.Id })</li>
+        }
+    </ul>
+</div>
