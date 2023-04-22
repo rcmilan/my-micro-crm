@@ -1,0 +1,63 @@
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Lead.Form;
+@using System.Text;
+
+@inject HttpClient httpClient;
+@inject NavigationManager navigationManager;
+
+@code {
+    [Parameter]
+    public CreateOrEditFormViewModel Model { get; set; } = default!;
+
+    private string fieldLabel { get; set; } = default!;
+    private string fieldInternalName { get; set; } = default!;
+
+    void AddField()
+    {
+        Model.Fields ??= new List<CreateFormFieldViewModel>();
+
+        var newFormField = new CreateFormFieldViewModel(Guid.NewGuid(), fieldLabel, fieldInternalName);
+
+        Model.Fields.Add(newFormField);
+    }
+
+    async Task Send()
+    {
+        var serialized = System.Text.Json.JsonSerializer.Serialize(Model);
+        var stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
+
+        var result = await httpClient.PostAsync($"{navigationManager.BaseUri}api/form", stringContent)
+            .ConfigureAwait(false);
+    }
+}
+
+<div>
+    <div>
+        <input type="text" placeholder="Label" @bind=fieldLabel />
+        <input type="text" placeholder="Internal Name" @bind=fieldInternalName />
+    </div>
+
+    <input type="button" @onclick=AddField value="Add Field" />
+
+    <hr />
+
+    <input type="button" @onclick=Send value="Submit!!" />
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Label</th>
+                <th>Internal Name</th>
+            </tr>
+        </thead>
+        @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
+        {
+            <tr>
+                <td>@f.Id</td>
+                <td>@f.Label</td>
+                <td>@f.InternalName</td>
+            </tr>
+        }
+    </table>
+</div>

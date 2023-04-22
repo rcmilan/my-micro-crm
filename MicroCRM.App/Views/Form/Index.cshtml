@@ -1,0 +1,26 @@
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Lead.Form;
+
+@model IList<FormListViewModel>
+
+@{
+    ViewData["Title"] = "Lead Forms";
+}
+
+@Html.ActionLink("Create", nameof(LeadController.FormDetail), "lead", new CreateOrEditFormViewModel(Guid.NewGuid(), "New Form"))
+
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Form</td>
+        <td></td>
+    </tr>
+    @foreach (var vm in Model)
+    {
+        <tr>
+            <td>@vm.Id</td>
+            <td>@vm.Name</td>
+            <td>@Html.ActionLink("Edit", nameof(LeadController.FormDetail), "lead", new CreateOrEditFormViewModel(vm.Id, vm.Name))</td>
+        </tr>
+    }
+</table>
