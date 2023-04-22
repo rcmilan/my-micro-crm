@@ -8,5 +8,6 @@
 - Cadastro
 ### Stack
 - C#.NET MVC
+- Blazor Components
 - MediatR
 - XUnit

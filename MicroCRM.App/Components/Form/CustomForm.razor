@@ -1,6 +1,30 @@
-﻿@code {
+﻿@using MicroCRM.App.Models.Lead.Form;
+
+@code {
     [Parameter]
-    public string Label { get; set; } = default!;
+    public CreateFormViewModel Model { get; set; }
+
+    void AddField()
+    {
+        Model.Fields ??= new List<CreateFormFieldViewModel>();
+
+        var newFormField = new CreateFormFieldViewModel(Guid.NewGuid(), "label123", "InternalName");
+
+        Model.Fields.Add(newFormField);
+    }
 }
 
-<h3>@Label</h3>
+<h6>@Model.Name</h6>
+
+<button @onclick=AddField>Add Field</button>
+
+<table>
+    @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
+    {
+        <tr id=@f.Id>
+            <td>@f.Id</td>
+            <td>@f.Label</td>
+            <td>@f.InternalName</td>
+        </tr>
+    }
+</table>
