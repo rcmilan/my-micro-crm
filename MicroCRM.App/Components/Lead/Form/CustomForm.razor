@@ -17,6 +17,7 @@
 
         Model.Fields.Add(newFormField);
     }
+
     async Task Send()
     {
         var serialized = System.Text.Json.JsonSerializer.Serialize(Model);
