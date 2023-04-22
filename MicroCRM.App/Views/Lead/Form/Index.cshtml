@@ -5,11 +5,12 @@
 
 @{
     ViewData["Title"] = "Lead Form";
-
 }
 
 <div>
-    <component type="typeof(CustomForm)" render-mode="ServerPrerendered" Label="teste" />
+    Blazor
+    <component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Label="@("teste")" />
+    /Blazor
 </div>
 
 @section Scripts {
