@@ -1,0 +1,17 @@
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Lead.Form;
+@using MicroCRM.App.Components.Lead.Form;
+
+@model CreateOrEditFormViewModel
+
+@{
+    ViewData["Title"] = $"{Model.Name} - Form Detail";
+}
+
+<p>@Model.Name</p>
+
+<component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
+
+@section Scripts {
+    <script src="_framework/blazor.server.js"></script>
+}

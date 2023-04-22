@@ -10,8 +10,4 @@
     <ProjectReference Include="..\MicroCRM.Services\MicroCRM.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\NewFolder\" />
-  </ItemGroup>
-
 </Project>

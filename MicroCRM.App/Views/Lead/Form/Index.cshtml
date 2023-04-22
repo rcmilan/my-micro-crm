@@ -1,17 +1,26 @@
 ﻿@using MicroCRM.App.Controllers;
 @using MicroCRM.App.Models.Lead.Form;
-@using MicroCRM.App.Components.Lead.Form;
 
-@model CreateFormViewModel
+@model IList<FormListViewModel>
 
 @{
-    ViewData["Title"] = "Lead Form";
+    ViewData["Title"] = "Lead Forms";
 }
 
-<p>Create Lead Form</p>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Form</td>
+        <td></td>
+    </tr>
+    @foreach (var vm in Model)
+    {
+        var formDetails = new CreateOrEditFormViewModel(vm.Id, vm.Name);
 
-<component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
-
-@section Scripts {
-    <script src="_framework/blazor.server.js"></script>
-}
+        <tr>
+            <td>@vm.Id</td>
+            <td>@vm.Name</td>
+            <td>@Html.ActionLink("Edit", nameof(LeadController.FormDetail), "lead", formDetails)</td>
+        </tr>
+    }
+</table>

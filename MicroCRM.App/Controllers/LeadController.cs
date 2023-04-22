@@ -5,6 +5,12 @@ namespace MicroCRM.App.Controllers
 {
     public class LeadController : Controller
     {
+        // db
+        private static readonly IList<FormListViewModel> createFormViewModels = new List<FormListViewModel>
+        {
+            new FormListViewModel(Guid.NewGuid(), "Form teste")
+        };
+
         public IActionResult Index()
         {
             return View();
@@ -12,17 +18,16 @@ namespace MicroCRM.App.Controllers
 
         public IActionResult Form()
         {
-            var m = new CreateFormViewModel
-            {
-                Id = Guid.NewGuid(),
-                Name = "Form 123",
-            };
+            return View("./Form/Index", createFormViewModels);
+        }
 
-            return View("./Form/index", m);
+        public IActionResult FormDetail(CreateOrEditFormViewModel viewModel)
+        {
+            return View("./Form/Detail", viewModel);
         }
 
         [HttpPost]
-        public IActionResult CreateForm([FromBody] CreateFormViewModel viewModel)
+        public IActionResult CreateForm([FromBody] CreateOrEditFormViewModel viewModel)
         {
             return RedirectToAction(nameof(Index));
         }
