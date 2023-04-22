@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCRM.App", "MicroCRM.App\MicroCRM.App.csproj", "{EBCBC3E4-CA0F-4ABC-B9BF-D9223A48A54A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCRM.App", "MicroCRM.App\MicroCRM.App.csproj", "{EBCBC3E4-CA0F-4ABC-B9BF-D9223A48A54A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCRM.Services", "MicroCRM.Services\MicroCRM.Services.csproj", "{5FA2EF24-5C05-4345-B2EE-7D9ACE178050}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCRM.Services", "MicroCRM.Services\MicroCRM.Services.csproj", "{5FA2EF24-5C05-4345-B2EE-7D9ACE178050}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCRM.Persistence", "MicroCRM.Persistence\MicroCRM.Persistence.csproj", "{9FF07822-88DD-4F31-84E1-CBE36A467734}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCRM.Persistence", "MicroCRM.Persistence\MicroCRM.Persistence.csproj", "{9FF07822-88DD-4F31-84E1-CBE36A467734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCRM.Domain", "MicroCRM.Domain\MicroCRM.Domain.csproj", "{718FC800-A3C5-4626-886C-DC2434F4A610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCRM.Domain", "MicroCRM.Domain\MicroCRM.Domain.csproj", "{718FC800-A3C5-4626-886C-DC2434F4A610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroCRM.Tests", "MicroCRM.Tests\MicroCRM.Tests.csproj", "{6430E8B5-7171-4A99-AEBC-426FCA7E5A13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroCRM.Tests", "MicroCRM.Tests\MicroCRM.Tests.csproj", "{6430E8B5-7171-4A99-AEBC-426FCA7E5A13}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Tests", "0.Tests", "{F39C68C3-55B1-4110-932D-CE3E175E8A39}"
 EndProject

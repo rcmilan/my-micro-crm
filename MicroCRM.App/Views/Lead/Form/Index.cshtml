@@ -1,4 +1,5 @@
 ﻿@using MicroCRM.App.Models.Lead.Form;
+@using MicroCRM.App.Components.Form;
 
 @model CreateFormViewModel
 
@@ -7,21 +8,10 @@
 
 }
 
-<p>
-    @Model.Name
-
-    @{
-        void render()
-        {
-            <p>teste</p>
-        }
-
-        render();
-    }
-</p>
 <div>
-    @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
-    {
-        <div id=@f.Id>@f.Label @f.InternalName</div>
-    }
+    <component type="typeof(CustomForm)" render-mode="ServerPrerendered" Label="teste" />
 </div>
+
+@section Scripts {
+    <script src="_framework/blazor.server.js"></script>
+}
