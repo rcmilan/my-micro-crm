@@ -1,3 +1,4 @@
+using MicroCRM.App.Configuration;
 using MicroCRM.Services.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddServerSideBlazor();
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddServicesModule();
+// Configuração das camadas do projeto
+builder.Services
+    .AddAppModule()
+    .AddServicesModule();
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿@using MicroCRM.App.Models.Lead.Form;
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Lead.Form;
 @using MicroCRM.App.Components.Lead.Form;
 
 @model CreateFormViewModel
@@ -7,7 +8,7 @@
     ViewData["Title"] = "Lead Form";
 }
 
-<h2>Create Lead Form</h2>
+<p>Create Lead Form</p>
 
 <component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
 

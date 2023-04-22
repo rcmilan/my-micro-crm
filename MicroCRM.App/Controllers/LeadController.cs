@@ -20,5 +20,11 @@ namespace MicroCRM.App.Controllers
 
             return View("./Form/index", m);
         }
+
+        [HttpPost]
+        public IActionResult CreateForm([FromBody] CreateFormViewModel viewModel)
+        {
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -1,4 +1,9 @@
-﻿@using MicroCRM.App.Models.Lead.Form;
+﻿@using MicroCRM.App.Controllers;
+@using MicroCRM.App.Models.Lead.Form;
+@using System.Text;
+
+@inject HttpClient httpClient;
+@inject NavigationManager navigationManager;
 
 @code {
     [Parameter]
@@ -12,19 +17,31 @@
 
         Model.Fields.Add(newFormField);
     }
+    async Task Send()
+    {
+        var serialized = System.Text.Json.JsonSerializer.Serialize(Model);
+        var stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
+
+        var result = await httpClient.PostAsync($"{navigationManager.BaseUri}lead/{nameof(LeadController.CreateForm)}", stringContent)
+            .ConfigureAwait(false);
+    }
 }
 
-<h6>@Model.Name</h6>
+<div>
+    <p>@Model.Name</p>
 
-<button @onclick=AddField>Add Field</button>
+    <input type="button" @onclick=AddField value="Add Field" />
 
-<table>
-    @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
-    {
-        <tr id=@f.Id>
-            <td>@f.Id</td>
-            <td>@f.Label</td>
-            <td>@f.InternalName</td>
-        </tr>
-    }
-</table>
+    <input type="button" @onclick=Send value="Submit!!" />
+
+    <table>
+        @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
+        {
+            <tr id=@f.Id>
+                <td>@f.Id</td>
+                <td>@f.Label</td>
+                <td>@f.InternalName</td>
+            </tr>
+        }
+    </table>
+</div>
