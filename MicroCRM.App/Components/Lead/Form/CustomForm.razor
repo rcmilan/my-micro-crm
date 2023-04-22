@@ -26,7 +26,7 @@
         var serialized = System.Text.Json.JsonSerializer.Serialize(Model);
         var stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
 
-        var result = await httpClient.PostAsync($"{navigationManager.BaseUri}lead/{nameof(LeadController.CreateForm)}", stringContent)
+        var result = await httpClient.PostAsync($"{navigationManager.BaseUri}api/form", stringContent)
             .ConfigureAwait(false);
     }
 }

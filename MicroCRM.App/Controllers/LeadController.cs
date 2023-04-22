@@ -16,20 +16,16 @@ namespace MicroCRM.App.Controllers
             return View();
         }
 
+        [Obsolete("mover para form controller")]
         public IActionResult Form()
         {
             return View("./Form/Index", createFormViewModels);
         }
 
+        [Obsolete("mover para form controller")]
         public IActionResult FormDetail(CreateOrEditFormViewModel viewModel)
         {
             return View("./Form/Detail", viewModel);
-        }
-
-        [HttpPost]
-        public IActionResult CreateForm([FromBody] CreateOrEditFormViewModel viewModel)
-        {
-            return RedirectToAction(nameof(Index));
         }
     }
 }

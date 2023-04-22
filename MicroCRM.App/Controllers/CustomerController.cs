@@ -42,6 +42,7 @@ namespace MicroCRM.App.Controllers
 
             var res = await mediator.Send(req);
 
+            // deve retornar 200
             return RedirectToAction(nameof(Detail), new { res.Id });
         }
     }

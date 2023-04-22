@@ -7,6 +7,8 @@
     ViewData["Title"] = "Lead Forms";
 }
 
+@Html.ActionLink("Create", nameof(LeadController.FormDetail), "lead", new CreateOrEditFormViewModel(Guid.NewGuid(), "New Form"))
+
 <table>
     <tr>
         <td>Id</td>
@@ -15,12 +17,10 @@
     </tr>
     @foreach (var vm in Model)
     {
-        var formDetails = new CreateOrEditFormViewModel(vm.Id, vm.Name);
-
         <tr>
             <td>@vm.Id</td>
             <td>@vm.Name</td>
-            <td>@Html.ActionLink("Edit", nameof(LeadController.FormDetail), "lead", formDetails)</td>
+            <td>@Html.ActionLink("Edit", nameof(LeadController.FormDetail), "lead", new CreateOrEditFormViewModel(vm.Id, vm.Name))</td>
         </tr>
     }
 </table>
