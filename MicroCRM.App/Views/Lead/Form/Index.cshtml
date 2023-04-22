@@ -1,5 +1,5 @@
 ﻿@using MicroCRM.App.Models.Lead.Form;
-@using MicroCRM.App.Components.Form;
+@using MicroCRM.App.Components.Lead.Form;
 
 @model CreateFormViewModel
 
@@ -7,11 +7,9 @@
     ViewData["Title"] = "Lead Form";
 }
 
-<div>
-    Blazor
-    <component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
-    /Blazor
-</div>
+<h2>Create Lead Form</h2>
+
+<component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
 
 @section Scripts {
     <script src="_framework/blazor.server.js"></script>
