@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MicroCRM.App.Models.Lead.Form;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MicroCRM.App.Controllers
 {
@@ -11,7 +12,13 @@ namespace MicroCRM.App.Controllers
 
         public IActionResult Form()
         {
-            return View("./Form/index");
+            var m = new CreateFormViewModel
+            {
+                Id = Guid.NewGuid(),
+                Name = "Form 123",
+            };
+
+            return View("./Form/index", m);
         }
     }
 }

@@ -1,7 +1,27 @@
-﻿@{
+﻿@using MicroCRM.App.Models.Lead.Form;
+
+@model CreateFormViewModel
+
+@{
     ViewData["Title"] = "Lead Form";
+
 }
 
 <p>
-    Lead!
+    @Model.Name
+
+    @{
+        void render()
+        {
+            <p>teste</p>
+        }
+
+        render();
+    }
 </p>
+<div>
+    @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
+    {
+        <div id=@f.Id>@f.Label @f.InternalName</div>
+    }
+</div>
