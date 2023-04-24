@@ -19,13 +19,13 @@ namespace MicroCRM.App.Controllers
         [Obsolete("mover para form controller")]
         public IActionResult Form()
         {
-            return View("./Form/Index", createFormViewModels);
+            return View("../Form/Index", createFormViewModels);
         }
 
         [Obsolete("mover para form controller")]
         public IActionResult FormDetail(CreateOrEditFormViewModel viewModel)
         {
-            return View("./Form/Detail", viewModel);
+            return View("../Form/Detail", viewModel);
         }
     }
 }
