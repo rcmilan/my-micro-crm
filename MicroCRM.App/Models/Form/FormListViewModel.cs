@@ -1,4 +1,4 @@
-﻿namespace MicroCRM.App.Models.Lead.Form
+﻿namespace MicroCRM.App.Models.Form
 {
     public record FormListViewModel(Guid Id, string Name);
 }

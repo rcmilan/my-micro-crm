@@ -1,6 +1,6 @@
 ﻿@using MicroCRM.App.Controllers;
-@using MicroCRM.App.Models.Lead.Form;
-@using MicroCRM.App.Components.Lead.Form;
+@using MicroCRM.App.Components.Form;
+@using MicroCRM.App.Models.Form;
 
 @model CreateOrEditFormViewModel
 
@@ -10,7 +10,7 @@
 
 <p>@Model.Name</p>
 
-<component type="typeof(CustomForm)" render-mode="ServerPrerendered" param-Model="Model" />
+<component type="typeof(CustomFormBuilder)" render-mode="ServerPrerendered" param-Model="Model" />
 
 @section Scripts {
     <script src="_framework/blazor.server.js"></script>

@@ -1,5 +1,5 @@
 ﻿@using MicroCRM.App.Controllers;
-@using MicroCRM.App.Models.Lead.Form;
+@using MicroCRM.App.Models.Form;
 @using System.Text;
 
 @inject HttpClient httpClient;
@@ -33,8 +33,8 @@
 
 <div>
     <div>
-        <input type="text" placeholder="Label" @bind=fieldLabel />
-        <input type="text" placeholder="Internal Name" @bind=fieldInternalName />
+        <InputText @bind-Value=fieldLabel />
+        <InputText @bind-Value=fieldInternalName />
     </div>
 
     <input type="button" @onclick=AddField value="Add Field" />
@@ -44,13 +44,11 @@
     <input type="button" @onclick=Send value="Submit!!" />
 
     <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Label</th>
-                <th>Internal Name</th>
-            </tr>
-        </thead>
+        <tr>
+            <th>Id</th>
+            <th>Label</th>
+            <th>Internal Name</th>
+        </tr>
         @foreach (var f in Model?.Fields ?? Enumerable.Empty<CreateFormFieldViewModel>())
         {
             <tr>

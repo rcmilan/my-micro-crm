@@ -1,4 +1,4 @@
-﻿namespace MicroCRM.App.Models.Lead.Form
+﻿namespace MicroCRM.App.Models.Form
 {
     public record CreateOrEditFormViewModel(Guid Id, string Name)
     {
