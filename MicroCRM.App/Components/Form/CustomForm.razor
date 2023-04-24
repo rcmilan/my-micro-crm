@@ -1,10 +1,18 @@
 ﻿@using MicroCRM.App.Models.Form;
+@using MicroCRM.Domain.Enums;
 
 <h3>@CustomFormParameters.Title</h3>
 <div>
     @foreach (var item in CustomFormParameters?.Inputs ?? Enumerable.Empty<CustomFormInputViewModel>())
     {
-        <InputText @bind-Value=item.Content></InputText>
+        if (item.InputType == CustomFormInputType.Numeric)
+        {
+            <InputNumber @bind-Value=item.Content></InputNumber>
+        }
+        else
+        {
+            <InputText @bind-Value=item.Content></InputText>
+        }
     }
     <input type="button" @onclick=Send>Send!</input>
 </div>
