@@ -1,4 +1,4 @@
-﻿using MicroCRM.App.Models.Lead.Form;
+﻿using MicroCRM.App.Models.Form;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroCRM.App.Controllers

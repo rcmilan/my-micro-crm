@@ -1,0 +1,20 @@
+﻿@using MicroCRM.App.Models.Form;
+
+<h3>@CustomFormParameters.Title</h3>
+<div>
+    @foreach (var item in CustomFormParameters?.Inputs ?? Enumerable.Empty<CustomFormInputViewModel>())
+    {
+        <InputText @bind-Value=item.Content></InputText>
+    }
+    <input type="button" @onclick=Send>Send!</input>
+</div>
+
+@code {
+    [Parameter, EditorRequired]
+    public CustomFormViewModel CustomFormParameters { get; set; } = default!;
+
+    private Task Send()
+    {
+        return Task.CompletedTask;
+    }
+}
